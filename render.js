@@ -7,10 +7,10 @@ const profileContainer = document.getElementById("profile");
 const projectsContainer = document.getElementById("projects");
 
 let skillsArr = skillsData.map((skill) => {
-  let bgColor = skill.color
-    ? `background-color: ${skill.color}4d;`
-    : `background: ${skill.gradient};`;
-  return `
+    let bgColor = skill.color
+        ? `background-color: ${skill.color}4d;`
+        : `background: ${skill.gradient};`;
+    return `
         <div class='badge' style='width: ${skill.width}px; ${bgColor}'>
             <img src='./svgs/${skill.name.toLowerCase()}.svg'/>
             <span>${skill.name}</span>
@@ -33,7 +33,7 @@ profileContainer.innerHTML = `
         `;
 
 const projectsArr = projectsData.map(
-  (project) => `
+    (project) => `
       <div class="project-item">
         <h4 class="imp">${project.name}</h4>
         <p>${project.desc}</p>
@@ -41,14 +41,14 @@ const projectsArr = projectsData.map(
           <p>${project.year}</p>
           <div>
             ${
-              project.repoLink
-                ? `<a href="${project.repoLink}"><img src="svgs/github.svg" alt="" /></a>`
-                : ""
+                project.repoLink
+                    ? `<a href="${project.repoLink}"><img src="svgs/github.svg" alt="" /></a>`
+                    : ""
             }
             ${
-              project.viewLink
-                ? `<a href="${project.viewLink}"><img src="svgs/popup.svg" alt="" /></a>`
-                : ""
+                project.viewLink
+                    ? `<a href="${project.viewLink}"><img src="svgs/popup.svg" alt="" /></a>`
+                    : ""
             }
           </div>
         </div>
@@ -56,4 +56,3 @@ const projectsArr = projectsData.map(
   `
 );
 projectsContainer.innerHTML = projectsArr;
-console.log(projectsData);
