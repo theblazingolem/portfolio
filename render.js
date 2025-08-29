@@ -6,16 +6,22 @@ const skillsContainer = document.getElementById("skills");
 const profileContainer = document.getElementById("profile");
 const projectsContainer = document.getElementById("projects");
 
-let skillsArr = skillsData.map((skill) => {
-    let bgColor = skill.color
-        ? `background-color: ${skill.color}4d;`
-        : `background: ${skill.gradient};`;
-    return `
-        <div class='badge' style='width: ${skill.width}px; ${bgColor}'>
-            <img src='./svgs/${skill.name.toLowerCase()}.svg'/>
-            <span>${skill.name}</span>
-        </div>`;
-});
+function renderBadge(skill, iconOnly = false) {
+    if (iconOnly) {
+        return `<img class='icon-badge' src='./svgs/${skill.toLowerCase()}.svg'/>`;
+    } else {
+        let bgColor = skill.color
+            ? `background-color: ${skill.color}4d;`
+            : `background: ${skill.gradient};`;
+        return `
+            <div class='badge' style='${bgColor}'>
+              <img src='./svgs/${skill.name.toLowerCase()}.svg'/>
+              <span>${skill.name}</span>
+            </div>`;
+    }
+}
+
+let skillsArr = skillsData.map((skill) => renderBadge(skill, false));
 skillsContainer.innerHTML = skillsArr.join("");
 
 profileContainer.innerHTML = `
@@ -30,12 +36,18 @@ profileContainer.innerHTML = `
           <img src='./svgs/gre.svg' />
           <span style="padding-top: 2px">${profileData.graduationDate}</span>
         </div></div>
+        <button class='git-btn'>Get in Touch</button>
         `;
 
 const projectsArr = projectsData.map(
     (project) => `
       <div class="project-item">
-        <h4 class="imp">${project.name}</h4>
+        <div class='prj'>
+          <h4 class="imp">${project.name}</h4>
+          <div class='tech'>${project.tech
+              .map((sk) => renderBadge(sk, true))
+              .join("")}</div>
+        </div>
         <p>${project.desc}</p>
         <div class="project-footer">
           <p>${project.year}</p>
@@ -55,4 +67,4 @@ const projectsArr = projectsData.map(
       </div>
   `
 );
-projectsContainer.innerHTML = projectsArr;
+projectsContainer.innerHTML = projectsArr.join("");
