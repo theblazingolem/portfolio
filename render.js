@@ -50,7 +50,7 @@ profileContainer.innerHTML = `
               new Date().getFullYear() - profileData.experience
           }+ years Experience</span>
         </div></div>
-        <button class='git-btn'>Get in Touch</button>
+        <a class='git-btn' href="mailto:blzng.dev@gmail.com">Get in Touch</a>
         <div class='social-links'>
           <a href="${
               profileData.github

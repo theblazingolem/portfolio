@@ -30,15 +30,18 @@ h3 {
     /* border: 1px solid cyan; */
 }
 .git-btn {
+    display: block;
     border: none;
+    width: fit-content;
     font: inherit;
     color: #121212;
     font-weight: 900;
     padding: 3px 10px;
-    margin: 15px auto;
+    margin: 15px 0;
     border-radius: 5px;
     font-size: 16px;
     background-color: #ffffff;
+    text-decoration: none;
 }
 .profile {
     position: sticky;
