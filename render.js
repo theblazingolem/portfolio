@@ -8,6 +8,8 @@ const profileContainer = document.getElementById("profile");
 const projectsContainer = document.getElementById("projects");
 const expContainer = document.getElementById("exp");
 
+document.getElementById("about").textContent = profileData.about;
+
 function renderBadge(skill, iconOnly = false) {
     if (iconOnly) {
         return `<img class='icon-badge' src='./svgs/${skill.toLowerCase()}.svg'/>`;
